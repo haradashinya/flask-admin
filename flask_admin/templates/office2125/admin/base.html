@@ -13,9 +13,14 @@
     {% endblock %}
     {% block head_css %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="http://localhost:5000/static/js/admin_helper.js"></script>
+        <script src="http://localhost:5000/static/js/admin_router.js"></script>
+        <script src="http://localhost:5000/static/js/widgets/admin.js"></script>
+        <script src="http://localhost:5000/static/js/events.js"></script>
+
         <!-- swatchはbootstrap3/swatchをペーストしているだけです -->
         <link href="{{ admin_static.url(filename='bootstrap/bootstrap4/swatch/{swatch}/bootstrap.min.css'.format(swatch=config.get('FLASK_ADMIN_SWATCH', 'default')), v='3.3.5') }}" rel="stylesheet">
         <link rel="stylesheet" href="http://localhost:5000/static/admin/office2125/style.css" crossorigin="anonymous">
@@ -32,6 +37,7 @@
   </head>
   <body>
     {% block page_body %}
+    <div id="app"></div>
     <div class="container">
       <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,6 +83,11 @@
     {% block tail_js %}
     <script src="{{ admin_static.url(filename='vendor/moment.min.js', v='2.9.0') }}" type="text/javascript"></script>
     <script src="{{ admin_static.url(filename='vendor/select2/select2.min.js', v='3.5.2') }}" type="text/javascript"></script>
+    <style>
+        body{
+            display:none;
+        }
+    </style>
     {% if admin_view.extra_js %}
       {% for js_url in admin_view.extra_js %}
         <script src="{{ js_url }}" type="text/javascript"></script>
