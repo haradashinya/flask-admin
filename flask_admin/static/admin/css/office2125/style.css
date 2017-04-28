@@ -1,5 +1,15 @@
 body {
 }
+.form-control {
+  height: auto;
+}
+
+
+/*Bootstrap4のスタイルをオーバーライドしています!!!*/
+.form-control#type {
+  border: none;
+}
+
 
 
 h1 {
