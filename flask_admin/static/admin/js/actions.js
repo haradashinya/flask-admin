@@ -2,7 +2,6 @@ var AdminModelActions = function(actionErrorMessage, actionConfirmations) {
     // Actions helpers. TODO: Move to separate file
     this.execute = function(name) {
         var selected = $('input.action-checkbox:checked').length;
-
         if (selected === 0) {
             alert(actionErrorMessage);
             return false;
